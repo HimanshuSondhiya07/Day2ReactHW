@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React with CDN</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .app-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 800px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section p {
+            margin: 5px 0;
+        }
+
+        .section a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .section a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+
+    <script>
+        // Main heading
+        const h1Element = React.createElement(
+            'div',
+            { className: 'section' },
+            React.createElement(
+                'h1',
+                'null',
+                'Topics covered'
+            ),
+            React.createElement(
+                'p',
+                null,
+                'The following is a list of all the topics we cover in the MDN learning area.'
+            )
+        );
+
+        // "Getting Started" section
+        const gettingStartedSection = React.createElement(
+            'div',
+            { className: 'section' },
+
+            React.createElement(
+                'a',
+                { href: '#getting-started', target: '_self' },
+                'Getting started with the web'
+            ),
+
+            React.createElement(
+                'p',
+                null,
+                'Provides a practical introduction to web development for complete beginners.'
+            )
+        );
+
+        // "HTML - Structuring the Web" section
+        const htmlSection = React.createElement(
+            'div',
+            { className: 'section' },
+            React.createElement(
+                'a',
+                { href: '#html', target: '_self' },
+                'HTML - Structuring the Web'
+            ),
+            React.createElement(
+                'p',
+                null,
+                'HTML is the language that we use to structure the different parts of our content and define what their meaning or purpose is. This topic teaches HTML in detail.'
+            )
+
+        );
+
+        // "CSS - Styling the Web" section
+        const cssSection = React.createElement(
+            'div',
+            { className: 'section' },
+            React.createElement(
+                'a',
+                { href: '#css', target: '_self' },
+                'CSS - Styling the Web'
+            ),
+            React.createElement(
+                'p',
+                null,
+                'CSS is the language that we use to control our web contents style and layout as well as adding behavior like animation. This topic provides comprehensive coverage of CSS.'
+            )
+
+        );
+
+        // Combining all the elements into a parent container
+        const appElement = React.createElement(
+            'div',
+            { className: 'app-container' },
+            h1Element,
+            gettingStartedSection,
+            htmlSection,
+            cssSection
+        );
+
+        // Rendering the combined element into the root div
+        ReactDOM.render(
+            appElement,
+            document.getElementById('root')
+        );
+    </script>
+</body>
+
+</html>
